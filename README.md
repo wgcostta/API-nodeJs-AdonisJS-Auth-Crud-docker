@@ -2,6 +2,10 @@
 
 ## Subir serviço já com nodemon:
 
+Rodar migrações:
+adonis migration:run
+
+Server:
 adonis serve --dev
 
 Container PostgresSQL para o banco de dados:
