@@ -86,7 +86,6 @@ class TweetController {
       return response.status(401);
     } else {
       tweet.delete();
-      return response.status(200);
     }
   }
 }
