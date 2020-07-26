@@ -1,6 +1,6 @@
-FROM node:8
+FROM node:alpine
 
-WORKDIR . /project
+WORKDIR /usr/app
 
 COPY package*.json ./
 
@@ -8,6 +8,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 8080
+EXPOSE 3333
 
 CMD [ "npm", "start" ]

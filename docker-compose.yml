@@ -1,13 +1,13 @@
-version: "2"
+version: "3"
+
 services:
   web:
     build: .
-    command: adonis serve --dev
+    command: npm start
     volumes:
-      - .:/project
-      - /project/node_modules
+      - .:/usr/app
     ports:
-      - "3000:3000"
+      - "3333:3333"
     depends_on:
       - postgres
     environment:
@@ -16,5 +16,6 @@ services:
   postgres:
     image: postgres:9.6.2-alpine
     environment:
-      POSTGRES_USER: adonis
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Postgres2018!
       POSTGRES_DB: adonis
