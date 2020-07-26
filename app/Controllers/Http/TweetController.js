@@ -1,4 +1,8 @@
-'use strict'
+"use strict";
+
+const Response = require("@adonisjs/framework/src/Response");
+
+const Tweet = use("App/Models/Tweet");
 
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
@@ -8,6 +12,8 @@
  * Resourceful controller for interacting with tweets
  */
 class TweetController {
+  // Removido métodos Edit e Create que são utilizados para views
+
   /**
    * Show a list of all tweets.
    * GET tweets
@@ -17,19 +23,9 @@ class TweetController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index ({ request, response, view }) {
-  }
-
-  /**
-   * Render a form to be used for creating a new tweet.
-   * GET tweets/create
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async create ({ request, response, view }) {
+  async index() {
+    const listTweets = await Tweet.all();
+    return listTweets;
   }
 
   /**
@@ -40,7 +36,11 @@ class TweetController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store ({ request, response }) {
+  async store({ request, auth }) {
+    const data = request.only(["content"]);
+    const tweet = await Tweet.create({ user_id: auth.user.id, ...data });
+
+    return tweet;
   }
 
   /**
@@ -52,19 +52,9 @@ class TweetController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show ({ params, request, response, view }) {
-  }
-
-  /**
-   * Render a form to update an existing tweet.
-   * GET tweets/:id/edit
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async edit ({ params, request, response, view }) {
+  async show({ params }) {
+    const tweet = await Tweet.findOrFail(params.id);
+    return tweet;
   }
 
   /**
@@ -75,7 +65,11 @@ class TweetController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async update ({ params, request, response }) {
+  async update({ params, request, response }) {
+    const data = request.only(["content"]);
+    const tweet = await Tweet.update({ user_id: auth.user.id, ...data });
+
+    return tweet;
   }
 
   /**
@@ -86,8 +80,15 @@ class TweetController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async destroy ({ params, request, response }) {
+  async destroy({ params, auth, response }) {
+    const tweet = await Tweet.findOrFail(params.id);
+    if (tweet.user_id !== auth.user.id) {
+      return response.status(401);
+    } else {
+      tweet.delete();
+      return response.status(200);
+    }
   }
 }
 
-module.exports = TweetController
+module.exports = TweetController;
