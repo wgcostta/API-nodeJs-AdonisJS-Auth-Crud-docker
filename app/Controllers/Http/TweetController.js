@@ -24,7 +24,8 @@ class TweetController {
    * @param {View} ctx.view
    */
   async index() {
-    const listTweets = await Tweet.all();
+    //Retornar o relacionamento do usuário na tabela user
+    const listTweets = await Tweet.query().with("user").fetch();
     return listTweets;
   }
 
