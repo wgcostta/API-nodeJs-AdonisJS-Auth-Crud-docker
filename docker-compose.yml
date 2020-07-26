@@ -1,0 +1,20 @@
+version: "2"
+services:
+  web:
+    build: .
+    command: adonis serve --dev
+    volumes:
+      - .:/project
+      - /project/node_modules
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgres://adonisapp@postgres/adonis
+
+  postgres:
+    image: postgres:9.6.2-alpine
+    environment:
+      POSTGRES_USER: adonis
+      POSTGRES_DB: adonis
