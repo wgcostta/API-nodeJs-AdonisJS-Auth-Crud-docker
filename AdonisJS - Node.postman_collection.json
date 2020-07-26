@@ -6,11 +6,21 @@
 	},
 	"item": [
 		{
-			"name": "Projects",
+			"name": "Tweets",
 			"item": [
 				{
-					"name": "Create Project",
+					"name": "Create",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTU5NTc5NjUyMn0.mvUuiddmQ11ttNXK8G4a3el2KaoiXFfCwagWWff3RnU",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -21,7 +31,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"title\": \"Novo Projeto\",\r\n\t\"descricao\": \"Descricao do Projeto\",\r\n\t\"tasks\":[\r\n\t\t{\r\n\t\t\t\"title\":\"Nova tarefa\",\r\n\t\t\t\"assignedTo\": \"5f1c390e5d08fa22d89ea0e1\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"title\":\"Outra tarefa\",\r\n\t\t\t\"assignedTo\": \"5f1c390e5d08fa22d89ea0e1\"\r\n\t\t}\r\n\t]\r\n}",
+							"raw": "{\r\n\t\"content\": \"Fala Galera, terceiro Tweeter test\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -29,49 +39,17 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/projects",
+							"raw": "http://127.0.0.1:3333/tweets",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
-							"port": "3000",
+							"port": "3333",
 							"path": [
-								"projects"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMWMzOTBlNWQwOGZhMjJkODllYTBlMSIsImlhdCI6MTU5NTcwOTkxNywiZXhwIjoxNTk1Nzk2MzE3fQ.bq9ZqjLLyALRGXcwyB4eP4GP53lWy3NlqOIer254JeE"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\t\"title\": \"Novo Projeto\",\r\n\t\"descricao\": \"Descricao do Projeto\",\r\n\t\"tasks\":[\r\n\t\t{\r\n\t\t\t\"title\":\"Nova tarefa\",\r\n\t\t\t\"assignedTo\": \"5f1c390e5d08fa22d89ea0e1\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"title\":\"Outra tarefa\",\r\n\t\t\t\"assignedTo\": \"5f1c390e5d08fa22d89ea0e1\"\r\n\t\t}\r\n\t]\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/projects/5f1d4aaecb780746e89d18bd",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"projects",
-								"5f1d4aaecb780746e89d18bd"
+								"tweets"
 							]
 						}
 					},
@@ -80,6 +58,16 @@
 				{
 					"name": "List",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTU5NTc5NjUyMn0.mvUuiddmQ11ttNXK8G4a3el2KaoiXFfCwagWWff3RnU",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [
 							{
@@ -89,22 +77,35 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/projects",
+							"raw": "http://127.0.0.1:3333/tweets",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
-							"port": "3000",
+							"port": "3333",
 							"path": [
-								"projects"
+								"tweets"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Show Project",
+					"name": "Show",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTU5NTc5NjUyMn0.mvUuiddmQ11ttNXK8G4a3el2KaoiXFfCwagWWff3RnU",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [
 							{
@@ -114,15 +115,18 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/projects/5f1d409c4902e638d4be5a55",
+							"raw": "http://127.0.0.1:3333/tweets/1",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
-							"port": "3000",
+							"port": "3333",
 							"path": [
-								"projects",
-								"5f1d409c4902e638d4be5a55"
+								"tweets",
+								"1"
 							]
 						}
 					},
@@ -131,28 +135,64 @@
 				{
 					"name": "Remove",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTU5NTc5NjUyMn0.mvUuiddmQ11ttNXK8G4a3el2KaoiXFfCwagWWff3RnU",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [
 							{
 								"key": "Authorization",
 								"type": "text",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMWMzOTBlNWQwOGZhMjJkODllYTBlMSIsImlhdCI6MTU5NTcwOTkxNywiZXhwIjoxNTk1Nzk2MzE3fQ.bq9ZqjLLyALRGXcwyB4eP4GP53lWy3NlqOIer254JeE"
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMWMzOTBlNWQwOGZhMjJkODllYTBlMSIsImlhdCI6MTU5NTcwOTkxNywiZXhwIjoxNTk1Nzk2MzE3fQ.bq9ZqjLLyALRGXcwyB4eP4GP53lWy3NlqOIer254JeE",
+								"disabled": true
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/projects/5f1d3d1f60419e1c389995c8",
+							"raw": "http://127.0.0.1:3333/tweets/3",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
-							"port": "3000",
+							"port": "3333",
 							"path": [
-								"projects",
-								"5f1d3d1f60419e1c389995c8"
+								"tweets",
+								"3"
 							]
 						}
 					},
 					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6fcfdbf7-f361-4428-b1a4-b3652270e10a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "04f5484b-cb04-444f-a16a-f882153d0842",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -235,7 +275,7 @@
 					"response": []
 				},
 				{
-					"name": "Auth User Copy",
+					"name": "App Test",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -285,92 +325,6 @@
 					"response": []
 				},
 				{
-					"name": "Update",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMWMzOTBlNWQwOGZhMjJkODllYTBlMSIsImlhdCI6MTU5NTcwOTkxNywiZXhwIjoxNTk1Nzk2MzE3fQ.bq9ZqjLLyALRGXcwyB4eP4GP53lWy3NlqOIer254JeE"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\t\"title\": \"Novo Projeto\",\r\n\t\"descricao\": \"Descricao do Projeto\",\r\n\t\"tasks\":[\r\n\t\t{\r\n\t\t\t\"title\":\"Nova tarefa\",\r\n\t\t\t\"assignedTo\": \"5f1c390e5d08fa22d89ea0e1\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"title\":\"Outra tarefa\",\r\n\t\t\t\"assignedTo\": \"5f1c390e5d08fa22d89ea0e1\"\r\n\t\t}\r\n\t]\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/projects/5f1d4aaecb780746e89d18bd",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"projects",
-								"5f1d4aaecb780746e89d18bd"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "List",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMWMzOTBlNWQwOGZhMjJkODllYTBlMSIsImlhdCI6MTU5NTcwOTkxNywiZXhwIjoxNTk1Nzk2MzE3fQ.bq9ZqjLLyALRGXcwyB4eP4GP53lWy3NlqOIer254JeE"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:3000/projects",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"projects"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Show Project",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMWMzOTBlNWQwOGZhMjJkODllYTBlMSIsImlhdCI6MTU5NTcwOTkxNywiZXhwIjoxNTk1Nzk2MzE3fQ.bq9ZqjLLyALRGXcwyB4eP4GP53lWy3NlqOIer254JeE"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:3000/projects/5f1d409c4902e638d4be5a55",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"projects",
-								"5f1d409c4902e638d4be5a55"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Remove",
 					"request": {
 						"method": "DELETE",
@@ -391,41 +345,6 @@
 							"path": [
 								"projects",
 								"5f1d3d1f60419e1c389995c8"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Forgout Password",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMWMzOTBlNWQwOGZhMjJkODllYTBlMSIsImlhdCI6MTU5NTcwOTkxNywiZXhwIjoxNTk1Nzk2MzE3fQ.bq9ZqjLLyALRGXcwyB4eP4GP53lWy3NlqOIer254JeE",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\t\"email\": \"wagner4@cloud99.net\",\r\n\t\"password\": \"123456\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/auth/forgot_password",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"auth",
-								"forgot_password"
 							]
 						}
 					},
