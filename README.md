@@ -4,6 +4,9 @@
 
 adonis serve --dev
 
+Container PostgresSQL para o banco de dados:
+https://medium.com/@renato.groffe/postgresql-docker-executando-uma-inst%C3%A2ncia-e-o-pgadmin-4-a-partir-de-containers-ad783e85b1a4
+
 This is the boilerplate for creating an API server in AdonisJs, it comes pre-configured with.
 
 1. Bodyparser
